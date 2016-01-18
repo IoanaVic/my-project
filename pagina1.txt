@@ -1,0 +1,107 @@
+Dynamic Content Loading
+AccordionPanel supports lazy loading of tab content, when dynamic option is set true, only active
+tab contents will be rendered to the client side and clicking an inactive tab header will do an ajax
+request to load the tab contents.
+This feature is useful to reduce bandwidth and speed up page loading time. By default activating a
+previously loaded dynamic tab does not initiate a request to load the contents again as tab is cached.
+To control this behavior use cache option.
+PrimeFaces Userʼs Guide
+15
+<p:accordionPanel dynamic="true">
+//..tabs
+</p:accordionPanel>
+Client Side Callbacks
+onTabChange is called before a tab is shown and onTabShow is called after. Both receive container
+element of the tab to show as the parameter.
+<p:accordionPanel onTabChange="handleChange(panel)">
+//..tabs
+</p:accordionPanel>
+<script type="text/javascript">
+function handleChange(panel) {
+//panel: new tab content container
+}
+</script>
+Ajax Behavior Events
+tabChange is the one and only ajax behavior event of accordion panel that is executed when a tab is
+toggled.
+<p:accordionPanel>
+<p:ajax event=”tabChange” listener=”#{bean.onChange}” />
+</p:accordionPanel>
+public void onChange(TabChangeEvent event) {
+//Tab activeTab = event.getTab();
+//...
+}
+Your listener(if defined) will be invoked with an org.primefaces.event.TabChangeEvent instance
+that contains a reference to the new active tab and the accordion panel itself.
+Dynamic Number of Tabs
+When the tabs to display are not static, use the built-in iteration feature similar to ui:repeat.
+<p:accordionPanel value=”#{bean.list}” var=”listItem”>
+<p:tab title="#{listItem.propertyA}">
+<h:outputText value= "#{listItem.propertyB}"/>
+...More content
+</p:tab>
+</p:accordionPanel>
+PrimeFaces Userʼs Guide
+16
+Disabled Tabs
+A tab can be disabled by setting disabled attribute to true.
+<p:accordionPanel>
+<p:tab title="First Tab Title" disabled=”true”>
+<h:outputText value= "Lorem"/>
+...More content for first tab
+</p:tab>
+<p:tab title="Second Tab Title">
+<h:outputText value="Ipsum" />
+</p:tab>
+//any number of tabs
+</p:accordionPanel>
+Multiple Selection
+By default, only one tab at a time can be active, enable multiple mode to activate multiple tabs.
+<p:accordionPanel multiple=”true”>
+//tabs
+</p:accordionPanel>
+Client Side API
+Widget: PrimeFaces.widget.AccordionPanel
+Method Params Return Type Description
+select(index) index: Index of tab to display void Activates tab with given index.
+unselect(index) index: Index of tab to hide void Deactivates tab with given index.
+Skinning
+AccordionPanel resides in a main container element which style and styleClass options apply.
+Following is the list of structural style classes;
+Class Applies
+.ui-accordion Main container element
+.ui-accordion-header Tab header
+.ui-accordion-content Tab content
+As skinning style classes are global, see the main Skinning section for more information.
+PrimeFaces Userʼs Guide
+17
+3.2 AjaxBehavior
+AjaxBehavior is an extension to standard f:ajax.
+Info
+Tag ajax
+Behavior Id org.primefaces.component.AjaxBehavior
+Behavior Class org.primefaces.component.behavior.ajax.AjaxBehavior
+Attributes
+Name Default Type Description
+listener null MethodExpr Method to process in partial request.
+immediate FALSE boolean Boolean value that determines the phaseId, when true
+actions are processed at apply_request_values, when false
+at invoke_application phase.
+async FALSE Boolean When set to true, ajax requests are not queued.
+process null String Component(s) to process in partial request.
+update null String Component(s) to update with ajax.
+onstart null String Callback to execute before ajax request is begins.
+oncomplete null String Callback to execute when ajax request is completed.
+onsuccess null String Callback to execute when ajax request succeeds.
+onerror null String Callback to execute when ajax request fails.
+global TRUE Boolean Global ajax requests are listened by ajaxStatus component,
+setting global to false will not trigger ajaxStatus.
+disabled FALSE Boolean Disables ajax behavior.
+event null String Client side event to trigger ajax request.
+Getting Started with AjaxBehavior
+AjaxBehavior is attached to the component to ajaxify.
+<h:inputText value="#{bean.text}">
+<p:ajax update="out" />
+</h:inputText>
+<h:outputText id="out" value="#{bean.text}" />
+PrimeFaces Userʼs Guide
