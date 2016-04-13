@@ -11,7 +11,7 @@ PrimeFaces Userʼs Guide
 //..tabs
 </p:accordionPanel>
 Client Side Callbacks
-onTabChange is called before a tab is shown and onTabShow is called after. Both receive container
+onTabChange is calleds shown and onTabShow is called after. Both receive container
 element of the tab to show as the parameter.
 <p:accordionPanel onTabChange="handleChange(panel)">
 //..tabs
