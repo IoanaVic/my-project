@@ -6,15 +6,7 @@ Selection of data displayed in datagrid is very similar to row selection in data
 the current data using the var reference. Important point is to place datagrid contents in a p:column
 which is a child of datagrid. Here is an example to demonstrate how to select data from datagrid and
 display within a dialog with ajax.
-<h:form id="carForm">
-<p:dataGrid var="car" value="#{carBean.cars}" columns="3" rows="12">
-<p:column>
-<p:panel header="#{car.model}">
-<p:commandLink update="carForm:display" oncomplete="dlg.show()">
-<f:setPropertyActionListener value="#{car}"
-target="#{carBean.selectedCar}"
-<h:outputText value="#sxsxs{car.model}" />
-</p:commandLink>
+<h:f
 </p:panel>
 </p:column>
 </p:dataGrid>
