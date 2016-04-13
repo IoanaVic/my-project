@@ -3,14 +3,14 @@ AccordionPanel supports lazy loading of tab content, when dynamic option is set 
 tab contents will be rendered to the client side and clicking an inactive tab header will do an ajax
 request to load the tab contents.
 This feature is useful to reduce bandwidth and speed up page loading time. By default activating a
-previously loaded dynamic tab does not initiate a request to load the contents again as tab is cached.
+previously loaded dynamic tab ddcdcdcdoes not initiate a request to load the contents again as tab is cached.
 To control this behavior use cache option.
 PrimeFaces Userʼs Guide
 15
 <p:accordionPanel dynamic="true">
 //..tabs
 </p:accordionPanel>
-Client Side Callbacks
+Client Side Callbackscccc dvfdd
 onTabChange is calleds shown and onTabShow is called after. Both receive container
 element of the tab to show as the parameter.
 <p:accordionPanel onTabChange="handleChange(panel)">
