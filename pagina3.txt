@@ -13,7 +13,7 @@ display within a dialog with ajax.
 <p:commandLink update="carForm:display" oncomplete="dlg.show()">
 <f:setPropertyActionListener value="#{car}"
 target="#{carBean.selectedCar}"
-<h:outputText value="#{car.model}" />
+<h:outputText value="#sxsxs{car.model}" />
 </p:commandLink>
 </p:panel>
 </p:column>
