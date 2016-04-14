@@ -1,0 +1,34 @@
+HowTo Unittest
+
+For background how Arquillian works see another HowTo document:
+Howto Arquillian on JBoss EAP6.docx
+You can run unit tests against a local or remote JBoss.  Local JBoss means your laptop. Remote means here not any JBoss server but two instances dedicated for this purpose: 
+•	crick1 for Windows/Oracle
+•	reydon1 for Linux/PostgreSQL
+
+Datamodel issues
+About the associated data model with local or remote JBoss instances:
+Regular at night testing against remote JBoss servers mentioned above is done via Jenkins and the datamodel + platform test tables will be recreated automatically in separate steps in that run (using create-database & create-testdatabase profiles and not the unittest_remote_jboss profile for that task).
+Note that for unit testing against the local JBoss the data model will be completely recreated (all data will be lost), because all database projects have the unittest_local_jboss profile that calls the create-database target. This includes test tables (TestEntity etc.) that are created in the PLATFORM schema (project platform-testdatabase).
+
+For a unit test run from your laptop against some a remote JBoss started from a local Eclipse the data model belonging to the remote server (+test tables) will not be automatically recreated. 
+The remote data model will be from the previous night unit test run. Be aware of that.
+It’s possible to recreate the remote data model from nothing but your laptop in the makelaarsuite root:
+normal data model recreate Reydon1:
+mvn validate -Pcreate-database
+-DpropertiesFile=" D:\IGP-Ontwikkel\Software\Projects\makelaarsuite\scripts\mksunittest\reydontest1_db.properties"
+-DtargetDBMS=postgres
+recreate the test tables Reydon1:
+mvn validate -pl "nl.makelaarsuite:platform-testdatabase" –Pcreate-testdatabase
+-DpropertiesFile="D:\IGP-Ontwikkel\Software\Projects\makelaarsuite\....scripts\mksunittest\reydontest1_db.properties" 
+-DtargetDBMS=postgres
+
+normal data model recreate Crick1:
+mvn validate -Pcreate-database
+-DpropertiesFile=" D:\IGP-Ontwikkel\Software\Projects\makelaarsuite\scripts\crick\crick1_db.properties"
+-DtargetDBMS=oracle
+recreate the test tables Crick1:
+mvn validate -pl "nl.makelaarsuite:platform-testdatabase" –Pcreate-testdatabase
+-DpropertiesFile="D:\IGP-Ontwikkel\Software\Projects\makelaarsuite\scripts\crick\crick1_db.properties" 
+-DtargetDBMS=oracle
+
