@@ -32,7 +32,7 @@ public void onChange(TabChangeEvent event) {
 //...
 }
 Your listener(if defined) will be invoked with an org.primefaces.event.TabChangeEvent instance
-new line
+something new 
 Dynamic Number of Tabs
 When the tabs to display are not static, use the built-in iteration feature similar to ui:repeat.
 <p:accordionPanel value=”#{bean.list}” var=”listItem”>
@@ -52,7 +52,7 @@ A tab can be disabled by setting disabled attribute to true.
 </p:tab>
 <p:tab title="Second Tab Title">
 <h:outputText value="Ipsum" />
-</p:tab>
+ceva
 //any number of tabs
 </p:accordionPanel>
 Multiple Selection
