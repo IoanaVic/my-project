@@ -24,13 +24,7 @@ display within a dialog with ajax.
 </p:dialog>
 "bottom" or "both" (default).
 Selecting Data
-Selection of data displayed in datagrid is very similar to row selection in datatable, you can access
-the current data using the var reference. Important point is to place datagrid contents in a p:column
-which is a child of datagrid. Here is an example to demonstrate how to select data from datagrid and
-display within a dialog with ajax.
-<h:f"bottom" or "both" (default).
-Selecting Data
-Selection of data displayed in datagrid is very similar to row selection in datatable, you can access
+Selection of data displayed in datagrid is very similar to row selection in datatable, you ca
 the current data using the var reference. Important point is to place datagrid contents in a p:column
 which is a child of datagrid. Here is an example to demonstrate how to select data from datagrid and
 display within a dialog with ajax.
