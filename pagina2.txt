@@ -21,3 +21,17 @@ submit would be made with Ajax.
 async FALSE Boolean When set to true, ajax requests are not queued.
 process null String Component(s) to process partially instead of whole view.
 update null String Component(s) to be updated with ajax.
+ctions are processed at apply_request_values, when
+false at invoke_application phase.
+type submit String Sets the behavior of the button.
+ajax TRUE Boolean xsxs the submit mode, when set to true(default),
+submit would be made with Ajax.
+async FALSE Boolean When set to true, ajax requests are not queued.
+process null String Component(s) to process partia
+ctions are processed at apply_request_values, when
+false at invoke_application phase.
+type submit String Sets the behavior of the button.
+ajax TRUE Boolean xsxs the submit mode, when set to true(default),
+submit would be made with Ajax.
+async FALSE Boolean When set to true, ajax requests are not queued.
+process null String Component(s) to process partia
